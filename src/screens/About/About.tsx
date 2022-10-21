@@ -12,6 +12,7 @@ import about2 from "static/images/about_2.png";
 import MailChimpFormContainer from "../../components/newsletter/MailchimpFormContainer";
 
 import 'main.css';
+import { AboutCard } from 'components';
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -70,12 +71,28 @@ const SectionText = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
+const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
 const About = () => {
   return (
     <Container>
       <WhiteText variant="h1">Revolutionise your life.</WhiteText>
       <WhiteText variant="h1">Permanentely.</WhiteText>
-      <Section>
+      <AboutCard
+        imageUrl={about1}
+        title="Who am I?"
+        subtitle="Subtitle"
+        body={loremIpsum}
+        sx={{ mt: 8 }}
+      />
+      <AboutCard
+        imageUrl={about2}
+        title="What can I do for you?"
+        subtitle="Subtitle"
+        body={loremIpsum}
+        sx={{ mt: 4 }}
+      />
+      {/* <Section>
         <Box
           sx={{
             '@media (min-width:0px)': {
@@ -153,7 +170,7 @@ const About = () => {
             If you want to look like a Greek God, you have to become one.
           </WhiteText>
         </SectionText>
-      </Section>
+      </Section> */}
       <Section marginBottom="40px">
         <MailChimpFormContainer />
       </Section>
