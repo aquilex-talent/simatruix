@@ -4,6 +4,7 @@ import { Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 import { ArticleCard, ArticleCardSkeleton } from "../../components";
+import { Article } from "./Blog";
 
 const ArticleColumn = styled("div")({
   width: "100%",
@@ -17,13 +18,6 @@ const ArticleColumn = styled("div")({
     marginBottom: 40,
   },
 });
-
-type Article = {
-  imgUrl: string;
-  title: string;
-  body: string;
-  readMoreUrl: string;
-};
 
 interface BlogListProps {
   articles: Article[];
@@ -65,7 +59,6 @@ const BlogList: FC<BlogListProps> = ({ articles }) => {
             key={article.title}
             imageUrl={article.imgUrl}
             title={article.title}
-            body={article.body}
             readMoreUrl={article.readMoreUrl}
           />
         ))}
