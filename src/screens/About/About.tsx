@@ -12,7 +12,8 @@ import about2 from "static/images/about_2.png";
 import MailChimpFormContainer from "../../components/newsletter/MailchimpFormContainer";
 
 import 'main.css';
-import { AboutCard, InstaFeed } from 'components';
+import { InstaFeed } from 'components';
+import AboutCard from '../../components/about-card/AboutCard';
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -74,7 +75,7 @@ const About = () => {
         title="What can I do for you?"
         subtitle="Subtitle"
         body={loremIpsum}
-        sx={{ mt: 4 }}
+        sx={{ mt: 4, mb: 4 }}
       />
       <InstaFeed />
       <Section marginBottom="40px">
