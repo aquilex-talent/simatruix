@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, SxProps, Theme, useTheme } from "@mui/material";
+import { SxProps, Theme, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 interface AboutCardProps {
@@ -14,23 +14,6 @@ interface AboutCardProps {
   body: string;
   sx?: SxProps<Theme>;
 }
-
-const ResponsiveCard = styled(Card)(({ theme }) => ({
-  borderRadius: 0,
-  [theme.breakpoints.up("lg")]: {
-    width: 900,
-  },
-  [theme.breakpoints.down("lg")]: {
-    width: 800,
-  },
-  [theme.breakpoints.down("md")]: {
-    width: 500,
-  },
-  [theme.breakpoints.down("sm")]: {
-    width: "100%",
-    minWidth: 300,
-  },
-}));
 
 const ResponsiveCardMedia = styled(CardMedia)(({ theme }) => ({
   width: '100%',
@@ -49,7 +32,7 @@ const AboutCard = ({ imageUrl, title, subtitle, body, sx }: AboutCardProps) => {
   const theme = useTheme();
   
   return (
-    <ResponsiveCard sx={sx}>
+    <Card sx={{ width: '100%', ...sx }}>
       <ResponsiveCardMedia
         image={imageUrl}
       />
@@ -81,7 +64,7 @@ const AboutCard = ({ imageUrl, title, subtitle, body, sx }: AboutCardProps) => {
           {body}
         </Typography>
       </CardContent>
-    </ResponsiveCard>
+    </Card>
   );
 }
 
