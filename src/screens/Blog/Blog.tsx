@@ -5,66 +5,45 @@ import BlogList from "./BlogList";
 export type Article = {
   imgUrl: string;
   title: string;
-  body: string;
   readMoreUrl: string;
 };
 
 const Blog: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
-  const mediumUrl =
-    "https://cors-anywhere.herokuapp.com/https://medium.com/feed/@fedor.selenskiy";
+  const mediumUrl = process.env.REACT_APP_MEDIUM_URL;
 
   useEffect(() => {
     const doFetch = async () => {
       try {
         console.log("performing fetch");
-        const res = await fetch(mediumUrl);
-        const xml = await res.text();
-        var node = new DOMParser().parseFromString(
-          xml,
-          "text/xml"
-        ).documentElement;
-        const articles = node.querySelectorAll("item");
+        if(!mediumUrl) {
+          console.log("no medium url!");
+          return;
+        }
 
+        const res = await fetch(mediumUrl, {
+          method: 'get',
+          headers: new Headers({
+            'Content-Type': 'application/json'
+          }),
+          redirect: "follow"
+        });
+
+        const text = await res.text();
+        const json = JSON.parse(text);
         const loadedArticles: Article[] = [];
 
-        for (let i = 0; i < articles.length; i++) {
-          const titleElement = articles[i].querySelector("title");
-          if (!titleElement || !titleElement.textContent) {
-            continue;
-          }
-
-          const title = titleElement.textContent;
-
-          const linkElement = articles[i].querySelector("link");
-          if (!linkElement || !linkElement.textContent) {
-            continue;
-          }
-
-          const readMoreUrl = linkElement.textContent;
-
-          if (!articles[i]) {
-            continue;
-          }
-
-          var encodedContent = articles[i].getElementsByTagNameNS(
-            "*",
-            "encoded"
-          );
-
-          if (!encodedContent || !encodedContent.item(0)) {
-            continue;
-          }
-
-          var content = encodedContent.item(0);
-          if (!content || !content.textContent) {
-            continue;
-          }
+        for (let i = 0; i < json.length; i++) {
+          const item = json[i];
+          const title = item.title;
+          const readMoreUrl = item.link;
+          
+          const encodedContent = item.content_encoded;
 
           const parser = new DOMParser();
           const parsedContent = parser.parseFromString(
-            content.textContent,
+            encodedContent,
             "text/html"
           );
 
@@ -80,26 +59,17 @@ const Blog: FC = () => {
             continue;
           }
 
-          const p = parsedContent.querySelector("p");
-          if (!p || !p.textContent) {
-            console.log("no p");
-            continue;
-          }
+          console.log({ title, link: readMoreUrl, imgUrl });
 
-          const body = p.textContent.substring(0, 100);
-
-          const article: Article = {
+          loadedArticles.push({
             imgUrl,
             title,
-            body,
-            readMoreUrl,
-          };
-
-          loadedArticles.push(article);
+            readMoreUrl: readMoreUrl
+          })
         }
 
         setArticles(loadedArticles);
-      } catch (error) {}
+      } catch (error) { }
     };
 
     doFetch();

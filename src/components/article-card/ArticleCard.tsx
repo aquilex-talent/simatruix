@@ -8,7 +8,6 @@ import { styled } from "@mui/material/styles";
 export interface ArticleCardProps {
   imageUrl: string;
   title: string;
-  body: string;
   readMoreUrl: string;
 }
 
