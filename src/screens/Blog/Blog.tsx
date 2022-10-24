@@ -3,7 +3,7 @@ import { useEffect, FC, useState } from "react";
 import BlogList from "./BlogList";
 
 export type Article = {
-  imgUrl: string;
+  imgUrl?: string;
   title: string;
   readMoreUrl: string;
 };
@@ -11,66 +11,64 @@ export type Article = {
 const Blog: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
-  const mediumUrl = process.env.REACT_APP_MEDIUM_URL;
-
   useEffect(() => {
     const doFetch = async () => {
-      try {
-        console.log("performing fetch");
-        if(!mediumUrl) {
-          console.log("no medium url!");
-          return;
-        }
+      try{
+        const res = await fetch("/@fedor.selenskiy");
+        const html = await res.text();
+        
+        var node = new DOMParser().parseFromString(
+          html,
+          "text/html"
+        ).documentElement;
 
-        const res = await fetch(mediumUrl, {
-          method: 'get',
-          headers: new Headers({
-            'Content-Type': 'application/json'
-          }),
-          redirect: "follow"
-        });
+        const articles = node.querySelectorAll("article");
 
-        const text = await res.text();
-        const json = JSON.parse(text);
-        const loadedArticles: Article[] = [];
+        console.log("number of articles: ", articles.length);
 
-        for (let i = 0; i < json.length; i++) {
-          const item = json[i];
-          const title = item.title;
-          const readMoreUrl = item.link;
-          
-          const encodedContent = item.content_encoded;
+        const fetchedArticles: Article[] = [];
 
-          const parser = new DOMParser();
-          const parsedContent = parser.parseFromString(
-            encodedContent,
-            "text/html"
-          );
+        for (let i = 0; i < articles.length; i++) {
+          const article = articles[i];
 
-          const img = parsedContent.querySelector("img");
-          if (!img) {
-            console.log("no img");
+          const title = article.querySelector("h2");
+          if(!title) {
             continue;
           }
 
-          const imgUrl = img.getAttribute("src");
-          if (!imgUrl) {
-            console.log("no src");
+          const urlElement = article.querySelector("a[aria-label='Post Preview Reading Time']");
+          if(!urlElement) {
             continue;
           }
 
-          console.log({ title, link: readMoreUrl, imgUrl });
+          const url = urlElement.getAttribute("href");
+          if(!url) {
+            continue;
+          }
 
-          loadedArticles.push({
-            imgUrl,
-            title,
-            readMoreUrl: readMoreUrl
-          })
+          const thisArticle: Article = {
+            title: title.innerText,
+            readMoreUrl: url
+          };
+
+          console.log(thisArticle);
+
+          const img = article.querySelector("img");
+          if(!!img) {
+            thisArticle.imgUrl = img.src;
+          }
+
+          fetchedArticles.push(thisArticle);
+
         }
 
-        setArticles(loadedArticles);
-      } catch (error) { }
-    };
+        setArticles(fetchedArticles);
+
+      } catch(error) {
+        console.log("ERROR: ", error);
+      }
+      
+    }
 
     doFetch();
   }, []);
