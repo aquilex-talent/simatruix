@@ -11,10 +11,14 @@ export type Article = {
 const Blog: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
-  const mediumUrl = "/feed/@fedor.selenskiy";
+  const mediumUrl = process.env.REACT_APP_MEDIUM_PATH;
 
   useEffect(() => {
     const doFetch = async () => {
+      if (!mediumUrl) {
+        return
+      }
+
       try {
         const res = await fetch(mediumUrl);
         const xml = await res.text();
@@ -87,7 +91,7 @@ const Blog: FC = () => {
         }
 
         setArticles(loadedArticles);
-      } catch (error) {}
+      } catch (error) { }
     };
 
     doFetch();
