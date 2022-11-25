@@ -13,9 +13,13 @@ export interface InstaItem {
 const InstaFeed = () => {
   const [instaItems, setInstaItems] = useState<InstaItem[]>([]);
 
-  const instaUrl = "https://http-server-5m7wx4rdyq-nw.a.run.app/";
+  const instaUrl = process.env.REACT_APP_INSTA_QUERY_CONTAINER_URL;
+
   useEffect(() => {
     const doFetch = async () => {
+      if (!instaUrl) {
+        return
+      }
       const res = await fetch(instaUrl);
       const json = await res.json();
 
