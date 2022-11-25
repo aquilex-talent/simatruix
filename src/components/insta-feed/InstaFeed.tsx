@@ -1,46 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import InstaGrid from './InstaGrid';
+import { InstaGrid } from '../../components';
+
+export type MediaType = "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
 
 export interface InstaItem {
   permalink: string;
   mediaUrl: string;
+  mediaType: MediaType;
+  thumbnailUrl?: string;
 }
 
 const InstaFeed = () => {
   const [instaItems, setInstaItems] = useState<InstaItem[]>([]);
 
-  const instaUrl = "https://v1.nocodeapi.com/ferrouskid/instagram/LnhwHoJFqgJvTbbS";
-
+  const instaUrl = "https://http-server-5m7wx4rdyq-nw.a.run.app/";
   useEffect(() => {
     const doFetch = async () => {
-      const res = await fetch(instaUrl, {
-        method: 'get',
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        }),
-        redirect: "follow"
-      });
+      const res = await fetch(instaUrl);
+      const json = await res.json();
 
-      const text = await res.text();
-      const json = JSON.parse(text).data;
-
-      const loadedInstaItems: InstaItem[] = [];
-
+      const fetchedItems: InstaItem[] = [];
       for (let i = 0; i < json.length && i < 9; i++) {
         const item = json[i];
-        const permalink = item.permalink;
-        const mediaUrl = item.media_url;
 
-        loadedInstaItems.push({permalink, mediaUrl});
+        const instaItem: InstaItem = {
+          permalink: item.permalink,
+          mediaUrl: item.media_url,
+          mediaType: item.media_type,
+        }
 
-        console.log({ permalink, mediaUrl });
+        if (!!item.thumbnail_url) {
+          instaItem.thumbnailUrl = item.thumbnail_url
+        }
+
+        fetchedItems.push(instaItem);
       }
 
-      setInstaItems(loadedInstaItems);
-    };
+      setInstaItems(fetchedItems);
+    }
 
     doFetch();
-
   }, []);
 
   return (

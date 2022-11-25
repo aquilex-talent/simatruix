@@ -6,7 +6,7 @@ import { CardActionArea } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export interface ArticleCardProps {
-  imageUrl: string;
+  imageUrl?: string;
   title: string;
   readMoreUrl: string;
 }
@@ -27,12 +27,13 @@ const ArticleCard = (props: ArticleCardProps) => (
   <ResponsiveCard>
     <a href={props.readMoreUrl} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
       <CardActionArea style={{ background: "white" }}>
-        <CardMedia
-          component="img"
-          height="160"
-          image={props.imageUrl}
-          alt="card image"
-        />
+        {props.imageUrl &&
+          <CardMedia
+            component="img"
+            height="160"
+            image={props.imageUrl}
+            alt="card image"
+          />}
         <CardContent>
           <Typography
             gutterBottom
