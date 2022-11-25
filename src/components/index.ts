@@ -7,3 +7,5 @@ export * from "./shop-card";
 export * from "./shop-section";
 export * from "./about-card";
 export * from "./insta-feed";
+export * from "./insta-grid";
+export * from "./media-item";
