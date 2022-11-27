@@ -59,6 +59,8 @@ const Section = styled(Box)<BoxProps>(({ theme }) => ({
 const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 const About = () => {
+  const postUrl = process.env.REACT_APP_MAILCHIMP_URL;
+
   return (
     <Container>
       <WhiteText variant="h1">Revolutionise your life.</WhiteText>
@@ -78,9 +80,11 @@ const About = () => {
         sx={{ mt: 4, mb: 4 }}
       />
       <InstaFeed />
-      <Section marginBottom="40px">
-        <MailChimpFormContainer />
-      </Section>
+      {postUrl &&
+        <Section marginBottom="40px">
+          <MailChimpFormContainer postUrl={postUrl}/>
+        </Section>
+      }
     </Container>
   )
 }
