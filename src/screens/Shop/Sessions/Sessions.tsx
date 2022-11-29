@@ -6,7 +6,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 import img from 'static/images/shop-card-img-3.png';
-import { ShopSection, RedButton } from '../../../components';
+import { ShopSection, RedBuyButton } from '../../../components';
 
 interface SessionInfo {
   url: string;
@@ -52,7 +52,7 @@ const Sessions = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
-  }; 
+  };
 
   const handleMenuItemClick = (numberOfSessions: number) => {
     setNumberSessions(numberOfSessions);
@@ -76,7 +76,7 @@ const Sessions = () => {
           disableElevation
           onClick={handleClick}
           endIcon={<KeyboardArrowDownIcon />}
-          sx={{ width: 300}}
+          sx={{ width: 300 }}
         >
           {sessions[numberSessions].description}
         </Button>
@@ -91,16 +91,14 @@ const Sessions = () => {
         >
           {Object.keys(sessions).map((key: string) => {
             const val: number = +key;
-            return(
-              <MenuItem onClick={() => handleMenuItemClick(val)}>
+            return (
+              <MenuItem onClick={() => handleMenuItemClick(val)} sx={{ width: 300 }}>
                 {sessions[val].description}
               </MenuItem>
             );
           })}
         </Menu>
-        <RedButton href={sessions[numberSessions].url} sx={{ borderRadius: 0, fontSize: 24, width: 300, mt: 4 }}>
-          Buy Now
-        </RedButton>
+        <RedBuyButton link={sessions[numberSessions].url} sx={{ mt: 4 }} />
       </Box>
     </ShopSection>
   );
