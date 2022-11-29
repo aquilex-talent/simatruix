@@ -4,11 +4,6 @@ import '../../main.css';
 import { styled } from "@mui/material/styles";
 import { Box, BoxProps } from "@mui/system";
 import {
-  Checkbox,
-  CheckboxProps,
-  FormControlLabel,
-  FormControlLabelProps,
-  FormGroup,
   TextField,
   TextFieldProps,
   Typography,
@@ -40,20 +35,6 @@ const Input = styled(TextField)<TextFieldProps>(({ theme }) => ({
   marginTop: "32px",
   width: "300px",
 }));
-
-const RedCheckbox = styled(Checkbox)<CheckboxProps>(({ theme }) => ({
-  color: theme.palette.secondary.light,
-  "&.Mui-checked": {
-    color: theme.palette.secondary.main,
-  },
-}));
-
-const RedFormControlLabel = styled(FormControlLabel)<FormControlLabelProps>(
-  ({ theme }) => ({
-    color: theme.palette.secondary.light,
-    marginTop: "32px",
-  })
-);
 
 export interface NewsletterSignUpProps {
   subscribe: (data: NameFormFields) => void;
@@ -94,6 +75,7 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
       <div className="NewsletterSignUp-image" style={{ backgroundImage: `url(${newsletterimg})` }}/>
       <CenteredBox
         sx={{
+          padding: theme.spacing(2),
           '@media (min-width:0px)': {
             marginY: theme.spacing(2),
           },
@@ -114,12 +96,6 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
           <Input label="Your Name" variant="standard" type="text" value={name} onChange={e => setName(e.currentTarget.value)} />
           <Input label="Your Surname" variant="standard" type="text" value={surname} onChange={e => setSurname(e.currentTarget.value)} />
           <Input label="Your Email" variant="standard" type="email" value={email} onChange={e => setEmail(e.currentTarget.value)} />
-          <FormGroup>
-            <RedFormControlLabel
-              control={<RedCheckbox defaultChecked />}
-              label="I want to receive occasional marketing"
-            />
-          </FormGroup>
           <div>
             {status === "sending" && "Sending"}
             {status === "error" && message !== null && message.toString()}
