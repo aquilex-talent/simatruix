@@ -7,18 +7,16 @@ interface MailChimpFormContainerProps {
 }
 
 const MailChimpFormContainer = ({ postUrl }: MailChimpFormContainerProps) => (
-  <div>
-    <MailChimpSubscribe
-      url={postUrl}
-      render={({ subscribe, status, message }) => (
-        <NewsletterSignUp
-          subscribe={subscribe}
-          status={status}
-          message={message}
-        />
-      )}
-    />
-  </div>
+  <MailChimpSubscribe
+    url={postUrl}
+    render={({ subscribe, status, message }) => (
+      <NewsletterSignUp
+        subscribe={subscribe}
+        status={status}
+        message={message}
+      />
+    )}
+  />
 )
 
 export default MailChimpFormContainer;

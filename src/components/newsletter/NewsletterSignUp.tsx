@@ -20,18 +20,7 @@ import { RedButton } from "../../components";
 import { NameFormFields } from "react-mailchimp-subscribe";
 
 const NewsletterBox = styled(Box)<BoxProps>(({ theme }) => ({
-  minWidth: 300,
-  [theme.breakpoints.up('xs')]: {
-    width: "100vw",
-    marginTop: "40px",
-  },
-  [theme.breakpoints.up('sm')]: {
-    width: 400,
-  },
-  [theme.breakpoints.up('md')]: {
-    width: 800,
-    marginTop: "100px",
-  },
+  width: '100%',
   backgroundColor: "#FFFFFF",
   marginLeft: "auto",
   marginRight: "auto",
