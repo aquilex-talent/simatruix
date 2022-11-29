@@ -20,18 +20,7 @@ import { RedButton } from "../../components";
 import { NameFormFields } from "react-mailchimp-subscribe";
 
 const NewsletterBox = styled(Box)<BoxProps>(({ theme }) => ({
-  minWidth: 300,
-  [theme.breakpoints.up('xs')]: {
-    width: "100vw",
-    marginTop: "40px",
-  },
-  [theme.breakpoints.up('sm')]: {
-    width: 400,
-  },
-  [theme.breakpoints.up('md')]: {
-    width: 800,
-    marginTop: "100px",
-  },
+  width: '100%',
   backgroundColor: "#FFFFFF",
   marginLeft: "auto",
   marginRight: "auto",
@@ -102,7 +91,7 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
 
   return (
     <NewsletterBox>
-      <img src={newsletterimg} alt="Adam Mikietinski" className="NewsletterSignUp-image"/>
+      <div className="NewsletterSignUp-image" style={{ backgroundImage: `url(${newsletterimg})` }}/>
       <CenteredBox
         sx={{
           '@media (min-width:0px)': {

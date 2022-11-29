@@ -22,7 +22,10 @@
 
 @media screen and (min-width: 900px) {
   .NewsletterSignUp-image {
-    display: block
+    display: block;
+    width: 50%;
+    max-height: 600px;
+    background-size: cover;
   }
 
   #about-img1 {

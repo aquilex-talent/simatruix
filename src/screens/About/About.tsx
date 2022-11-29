@@ -44,6 +44,7 @@ const Container = styled(Box)<BoxProps>(({ theme }) => ({
 
 const Section = styled(Box)<BoxProps>(({ theme }) => ({
   display: 'flex',
+  width: '100%',
   [theme.breakpoints.up('xs')]: {
     flexDirection: 'column',
     marginTop: '50px',
