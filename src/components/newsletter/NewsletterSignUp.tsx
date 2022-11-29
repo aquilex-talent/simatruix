@@ -91,7 +91,7 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
 
   return (
     <NewsletterBox>
-      <img src={newsletterimg} alt="Adam Mikietinski" className="NewsletterSignUp-image"/>
+      <div className="NewsletterSignUp-image" style={{ backgroundImage: `url(${newsletterimg})` }}/>
       <CenteredBox
         sx={{
           '@media (min-width:0px)': {
