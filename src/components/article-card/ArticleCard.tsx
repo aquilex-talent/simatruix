@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -5,10 +7,14 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export interface ArticleCardProps {
-  imageUrl?: string;
+export type Article = {
+  imgUrl?: string;
   title: string;
   readMoreUrl: string;
+};
+
+export interface ArticleCardProps {
+  article: Article;
 }
 
 const ResponsiveCard = styled(Card)(({ theme }) => ({
@@ -23,15 +29,15 @@ const ResponsiveCard = styled(Card)(({ theme }) => ({
   },
 }));
 
-const ArticleCard = (props: ArticleCardProps) => (
+const ArticleCard = ({ article }: ArticleCardProps) => (
   <ResponsiveCard>
-    <a href={props.readMoreUrl} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
+    <a href={article.readMoreUrl} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
       <CardActionArea style={{ background: "white" }}>
-        {props.imageUrl &&
+        {article.imgUrl &&
           <CardMedia
             component="img"
             height="160"
-            image={props.imageUrl}
+            image={article.imgUrl}
             alt="card image"
           />}
         <CardContent>
@@ -43,7 +49,7 @@ const ArticleCard = (props: ArticleCardProps) => (
             textAlign="center"
             fontWeight="bold"
           >
-            {props.title}
+            {article.title}
           </Typography>
         </CardContent>
       </CardActionArea>

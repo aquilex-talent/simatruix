@@ -1,12 +1,7 @@
 import { useEffect, FC, useState } from "react";
 
 import BlogList from "./BlogList";
-
-export type Article = {
-  imgUrl?: string;
-  title: string;
-  readMoreUrl: string;
-};
+import { Article } from "components/article-card/ArticleCard";
 
 const Blog: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -45,9 +40,12 @@ const Blog: FC = () => {
 
           const readMoreUrl = linkElement.textContent;
 
-          if (!articles[i]) {
-            continue;
-          }
+          const article: Article = {
+            title,
+            readMoreUrl: readMoreUrl
+          };
+
+          loadedArticles.push(article);
 
           var encodedContent = articles[i].getElementsByTagNameNS(
             "*",
@@ -81,13 +79,7 @@ const Blog: FC = () => {
             continue;
           }
 
-          const article: Article = {
-            imgUrl,
-            title,
-            readMoreUrl,
-          };
-
-          loadedArticles.push(article);
+          article.imgUrl = imgUrl;
         }
 
         setArticles(loadedArticles);

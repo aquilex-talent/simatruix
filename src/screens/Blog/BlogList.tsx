@@ -4,7 +4,7 @@ import { Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 import { ArticleCard, ArticleCardSkeleton } from "../../components";
-import { Article } from "./Blog";
+import { Article } from "components/article-card/ArticleCard";
 
 const ArticleColumn = styled("div")({
   width: "100%",
@@ -24,25 +24,6 @@ interface BlogListProps {
 }
 
 const BlogList: FC<BlogListProps> = ({ articles }) => {
-  if (articles.length === 0) {
-    return (
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: 1,
-        }}
-      >
-        <ArticleColumn>
-          <ArticleCardSkeleton />
-          <ArticleCardSkeleton />
-          <ArticleCardSkeleton />
-          <ArticleCardSkeleton />
-        </ArticleColumn>
-      </Container>
-    );
-  }
   return (
     <Container
       sx={{
@@ -54,14 +35,22 @@ const BlogList: FC<BlogListProps> = ({ articles }) => {
       }}
     >
       <ArticleColumn>
-        {articles.map((article) => (
-          <ArticleCard
-            key={article.title}
-            imageUrl={article.imgUrl}
-            title={article.title}
-            readMoreUrl={article.readMoreUrl}
-          />
-        ))}
+        {articles.length === 0 ? (
+            <>
+              <ArticleCardSkeleton />
+              <ArticleCardSkeleton />
+              <ArticleCardSkeleton />
+              <ArticleCardSkeleton />
+            </>
+          ) : (
+            articles.map((article) => (
+              <ArticleCard
+                key={article.title}
+                article={article}
+              />
+            ))
+          )
+        }
       </ArticleColumn>
     </Container>
   );
