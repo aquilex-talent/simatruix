@@ -4,13 +4,13 @@ import Skeleton, { SkeletonProps } from "@mui/material/Skeleton";
 
 const ResponsiveCardSkeleton = styled(Skeleton)<SkeletonProps>(({ theme }) => ({
   background: theme.palette.primary.main,
-  [theme.breakpoints.up("md")]: {
-    height: 320,
-    width: 700,
+  [theme.breakpoints.up("sm")]: {
+    width: 600,
   },
   [theme.breakpoints.down("sm")]: {
-    height: 320,
-    width: 350,
+    width: "100%",
+    minWidth: 300,
+    borderRadius: 0,
   },
 }));
 
