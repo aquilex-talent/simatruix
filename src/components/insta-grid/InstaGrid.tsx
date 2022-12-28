@@ -18,10 +18,10 @@ const StyledGrid = styled.div`
 `
 
 const InstaGrid = ({ items }: InstaGridProps) => {
-  if (items.length === 0) {
-    return (
-      <StyledGrid>
-        {(new Array(9)).fill(
+  return (
+    <StyledGrid>
+      {items.length === 0 ? (
+        (new Array(9)).fill(
           <Skeleton
             variant='rectangular'
             sx={{
@@ -32,15 +32,13 @@ const InstaGrid = ({ items }: InstaGridProps) => {
               aspectRatio: "1/ 1"
             }}
           />
-        )}
-      </StyledGrid>
-    )
-  }
-  return (
-    <StyledGrid>
-      {items.map(item => (
-        <MediaItem item={item} />
-      ))}
+        )
+      ) : (
+        items.map(item => (
+          <MediaItem item={item} />
+        ))
+      )
+      }
     </StyledGrid>
   );
 };
