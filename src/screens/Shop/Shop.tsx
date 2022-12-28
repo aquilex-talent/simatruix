@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
-import { ShopCardProps } from 'components';
+
 
 import img1 from 'static/images/shop-card-img-1.png';
 import img2 from 'static/images/shop-card-img-2.png';
 import img3 from 'static/images/shop-card-img-3.png';
 import img4 from 'static/images/shop-card-img-4.png';
+
+import { ShopCardProps } from 'components';
+
 import ShopGrid from './ShopGrid';
 
 const Shop: FC = () => {

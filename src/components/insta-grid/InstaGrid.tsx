@@ -1,9 +1,9 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
 import Skeleton from "@mui/material/Skeleton";
 
 import { InstaItem, MediaItem } from '../../components';
-import styled from '@emotion/styled';
 
 interface InstaGridProps {
   items: InstaItem[];

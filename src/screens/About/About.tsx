@@ -1,4 +1,7 @@
 import React from 'react';
+
+import 'main.css';
+
 import {
   Typography,
   TypographyProps,
@@ -9,11 +12,8 @@ import {
 
 import about1 from "static/images/about_1.png";
 import about2 from "static/images/about_2.png";
-import MailChimpFormContainer from "../../components/newsletter/MailchimpFormContainer";
 
-import 'main.css';
-import { InstaFeed } from 'components';
-import AboutCard from '../../components/about-card/AboutCard';
+import { InstaFeed, AboutCard, MailchimpFormContainer } from 'components';
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -83,7 +83,7 @@ const About = () => {
       <InstaFeed />
       {postUrl &&
         <Section marginBottom="40px">
-          <MailChimpFormContainer postUrl={postUrl}/>
+          <MailchimpFormContainer postUrl={postUrl}/>
         </Section>
       }
     </Container>

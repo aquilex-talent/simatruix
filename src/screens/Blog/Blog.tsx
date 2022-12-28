@@ -1,7 +1,8 @@
 import { useEffect, FC, useState } from "react";
 
-import BlogList from "./BlogList";
 import { Article } from "components/article-card/ArticleCard";
+
+import BlogList from "./BlogList";
 
 const Blog: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);

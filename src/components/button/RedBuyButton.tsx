@@ -12,7 +12,12 @@ interface RedBuyButtonProps {
 
 const RedBuyButton = ({ link, sx }: RedBuyButtonProps) => (
   <RedButton sx={{ borderRadius: 0, fontSize: 24, width: 300, ...sx }}>
-    <a href={link} target="_blank" rel="noreferrer" style={{ color: "black", textDecoration: "none" }}>
+    <a
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+      style={{ color: "black", textDecoration: "none" }}
+    >
       Buy Now
     </a>
   </RedButton>

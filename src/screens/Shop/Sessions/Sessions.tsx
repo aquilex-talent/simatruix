@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-import { Box, Button } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Menu from '@mui/material/Menu';
+import { Box, Button } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import img from 'static/images/shop-card-img-3.png';
-import { ShopSection, RedBuyButton } from '../../../components';
+import { ShopSection, RedBuyButton } from 'components';
 
 interface SessionInfo {
   url: string;
@@ -66,7 +66,12 @@ const Sessions = () => {
       subtitle="Abs are made in the kitchen"
       body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     >
-      <Box display="flex" flexDirection="column" mt="auto" mb="auto">
+      <Box
+        display="flex"
+        flexDirection="column"
+        mt="auto"
+        mb="auto"
+      >
         <Button
           id="demo-customized-button"
           aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -92,13 +97,19 @@ const Sessions = () => {
           {Object.keys(sessions).map((key: string) => {
             const val: number = +key;
             return (
-              <MenuItem onClick={() => handleMenuItemClick(val)} sx={{ width: 300 }}>
+              <MenuItem
+                sx={{ width: 300 }}
+                onClick={() => handleMenuItemClick(val)}
+              >
                 {sessions[val].description}
               </MenuItem>
             );
           })}
         </Menu>
-        <RedBuyButton link={sessions[numberSessions].url} sx={{ mt: 4 }} />
+        <RedBuyButton
+          sx={{ mt: 4 }}
+          link={sessions[numberSessions].url}
+        />
       </Box>
     </ShopSection>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import { styled } from "@mui/material/styles";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
 import { SxProps, Theme, useTheme } from "@mui/material";
-import { styled } from "@mui/material/styles";
 
 interface AboutCardProps {
   imageUrl: string;

@@ -23,10 +23,13 @@ const getColor = (theme: Theme, location: string, targetLocation: string) => {
 const NavbarLink: FC<NavbarLinkProps> = ({ path, label }) => {
   const location = useLocation();
   const theme = useTheme();
-  
+
   return (
     <StyledLink to={path}>
-      <Typography variant="largeSemibold" color={getColor(theme, location.pathname.toString(), path)}>
+      <Typography
+        variant="largeSemibold"
+        color={getColor(theme, location.pathname.toString(), path)}
+      >
         {label}
       </Typography>
     </StyledLink>

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
-import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
 
 import { theme } from "./Theme";
 import { Navbar } from "./components";

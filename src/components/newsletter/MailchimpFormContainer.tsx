@@ -1,12 +1,13 @@
 import React from 'react';
 import MailChimpSubscribe from "react-mailchimp-subscribe";
+
 import NewsletterSignUp from './NewsletterSignUp';
 
-interface MailChimpFormContainerProps {
+interface MailchimpFormContainerProps {
   postUrl: string;
 }
 
-const MailChimpFormContainer = ({ postUrl }: MailChimpFormContainerProps) => (
+const MailchimpFormContainer = ({ postUrl }: MailchimpFormContainerProps) => (
   <MailChimpSubscribe
     url={postUrl}
     render={({ subscribe, status, message }) => (
@@ -19,4 +20,4 @@ const MailChimpFormContainer = ({ postUrl }: MailChimpFormContainerProps) => (
   />
 )
 
-export default MailChimpFormContainer;
+export default MailchimpFormContainer;

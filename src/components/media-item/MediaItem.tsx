@@ -1,9 +1,10 @@
 import React from 'react';
+
+import { SxProps, Theme } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import FilterNoneIcon from '@mui/icons-material/FilterNone';
 
 import { InstaItem } from '../../components';
-import { SxProps, Theme } from '@mui/material';
 
 interface MediaItemProps {
   item: InstaItem

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 
 import img from 'static/images/shop-card-img-4.png';
-import { ShopSection, RedBuyButton } from '../../../components';
+import { ShopSection, RedBuyButton } from 'components';
 
 const StrengthCamp = () => {
   return (
