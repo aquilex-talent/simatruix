@@ -11,7 +11,6 @@ import { ShopCardProps } from 'components';
 import ShopGrid from './ShopGrid';
 
 const Shop: FC = () => {
-
   const shopCards: ShopCardProps[] = [
     {
       imageUrl: img1,

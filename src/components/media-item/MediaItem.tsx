@@ -34,6 +34,7 @@ const MediaItem = ({ item }: MediaItemProps) => {
         }}>
         <img
           src={imageUrl}
+          alt="insta-item"
           style={{
             display: 'block',
             objectFit: 'cover',
