@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { NameFormFields } from "react-mailchimp-subscribe";
+
 import '../../main.css';
 
-import { styled } from "@mui/material/styles";
 import { Box, BoxProps } from "@mui/system";
+import { styled } from "@mui/material/styles";
 import {
   TextField,
   TextFieldProps,
@@ -10,9 +12,8 @@ import {
   useTheme,
 } from "@mui/material";
 
+import { RedButton } from "components";
 import newsletterimg from "../../static/images/newsletter.png";
-import { RedButton } from "../../components";
-import { NameFormFields } from "react-mailchimp-subscribe";
 
 const NewsletterBox = styled(Box)<BoxProps>(({ theme }) => ({
   width: '100%',
@@ -72,7 +73,7 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
 
   return (
     <NewsletterBox>
-      <div className="NewsletterSignUp-image" style={{ backgroundImage: `url(${newsletterimg})` }}/>
+      <div className="NewsletterSignUp-image" style={{ backgroundImage: `url(${newsletterimg})` }} />
       <CenteredBox
         sx={{
           padding: theme.spacing(2),
@@ -93,9 +94,27 @@ const NewsletterSignUp = ({ subscribe, status, message }: NewsletterSignUpProps)
           </Typography>
         </CenteredBox>
         <CenteredBox marginTop="8px">
-          <Input label="Your Name" variant="standard" type="text" value={name} onChange={e => setName(e.currentTarget.value)} />
-          <Input label="Your Surname" variant="standard" type="text" value={surname} onChange={e => setSurname(e.currentTarget.value)} />
-          <Input label="Your Email" variant="standard" type="email" value={email} onChange={e => setEmail(e.currentTarget.value)} />
+          <Input
+            label="Your Name"
+            variant="standard"
+            type="text"
+            value={name}
+            onChange={e => setName(e.currentTarget.value)}
+          />
+          <Input
+            label="Your Surname"
+            variant="standard"
+            type="text"
+            value={surname}
+            onChange={e => setSurname(e.currentTarget.value)}
+          />
+          <Input
+            label="Your Email"
+            variant="standard"
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.currentTarget.value)}
+          />
           <div>
             {status === "sending" && "Sending"}
             {status === "error" && message !== null && message.toString()}

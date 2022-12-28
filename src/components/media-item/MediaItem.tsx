@@ -1,9 +1,10 @@
 import React from 'react';
+
+import { SxProps, Theme } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import FilterNoneIcon from '@mui/icons-material/FilterNone';
 
-import { InstaItem } from '../../components';
-import { SxProps, Theme } from '@mui/material';
+import { InstaItem } from 'components';
 
 interface MediaItemProps {
   item: InstaItem
@@ -33,6 +34,7 @@ const MediaItem = ({ item }: MediaItemProps) => {
         }}>
         <img
           src={imageUrl}
+          alt="insta-item"
           style={{
             display: 'block',
             objectFit: 'cover',

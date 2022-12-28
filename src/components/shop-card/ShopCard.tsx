@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import { CardActions } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+
 import { RedButton } from '../button';
-import { Link } from 'react-router-dom';
 
 export interface ShopCardProps {
   imageUrl: string;
@@ -36,15 +38,41 @@ const ShopCard = (props: ShopCardProps) => (
       alt="card image"
     />
     <CardContent sx={{ height: 120 }}>
-      <div style={{ fontFamily: "Open Sans", fontSize: 30, fontWeight: "bold", width: '100%', color: '#E9052F', textAlign: 'center', marginBottom: 8 }}>
+      <div
+        style={{
+          fontFamily: "Open Sans",
+          fontSize: 30,
+          fontWeight: "bold",
+          width: '100%',
+          color: '#E9052F',
+          textAlign: 'center',
+          marginBottom: 8
+        }}
+      >
         {props.title}
       </div>
-      <div style={{ fontFamily: "Open Sans", fontSize: 16, width: '100%', color: 'black', textAlign: 'center' }}>
+      <div
+        style={{
+          fontFamily: "Open Sans",
+          fontSize: 16,
+          width: '100%',
+          color: 'black',
+          textAlign: 'center'
+        }}
+      >
         {props.body}
       </div>
     </CardContent>
     <CardActions>
-      <Link to={props.url} style={{ textDecoration: 'none', marginLeft: 'auto', marginRight: 8, marginBottom: 8 }}>
+      <Link
+        to={props.url}
+        style={{
+          textDecoration: 'none',
+          marginLeft: 'auto',
+          marginRight: 8,
+          marginBottom: 8
+        }}
+      >
         <RedButton sx={{ borderRadius: 0 }}>Learn More</RedButton>
       </Link>
     </CardActions>

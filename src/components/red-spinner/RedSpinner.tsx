@@ -1,7 +1,5 @@
 import { styled } from "@mui/material";
-import CircularProgress, {
-  CircularProgressProps,
-} from "@mui/material/CircularProgress";
+import CircularProgress, { CircularProgressProps } from "@mui/material/CircularProgress";
 
 const RedSpinner = styled(CircularProgress)<CircularProgressProps>(
   ({ theme }) => ({

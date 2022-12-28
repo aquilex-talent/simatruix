@@ -1,7 +1,8 @@
 import React from 'react';
+
 import Grid from '@mui/material/Grid';
 
-import { ShopCard, ShopCardProps } from '../../components';
+import { ShopCard, ShopCardProps } from 'components';
 
 interface ShopGridProps {
   shopCards: ShopCardProps[];
@@ -15,11 +16,23 @@ const ShopGrid = ({ shopCards }: ShopGridProps) => {
   }
 
   return (
-    <div style={{ width: '80%', marginLeft: 'auto', marginRight: 'auto', marginTop: 80 }}>
+    <div
+      style={{
+        width: '80%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 80
+      }}
+    >
       <Grid
         container
         rowSpacing={4}
-        columnSpacing={{ xs: 0, sm: 2, md: 3, lg: 4 }}
+        columnSpacing={{
+          xs: 0,
+          sm: 2,
+          md: 3,
+          lg: 4
+        }}
         alignItems="center"
         justifyContent="center"
         paddingBottom={4}

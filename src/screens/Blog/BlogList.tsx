@@ -3,8 +3,7 @@ import React, { FC } from "react";
 import { Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import { ArticleCard, ArticleCardSkeleton } from "../../components";
-import { Article } from "components/article-card/ArticleCard";
+import { Article, ArticleCard, ArticleCardSkeleton } from "components";
 
 const ArticleColumn = styled("div")({
   width: "100%",

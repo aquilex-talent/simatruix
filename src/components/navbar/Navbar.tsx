@@ -11,6 +11,7 @@ import {
   Drawer,
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
+
 import NavbarLink from "./NavbarLink";
 import MyDrawer from "./MyDrawer";
 
@@ -70,7 +71,17 @@ const Navbar: FC = () => {
           >
             Simatriux
           </Typography>
-          <Box sx={{ marginLeft: "auto", display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' } }}>
+          <Box
+            sx={{
+              marginLeft: "auto",
+              display: {
+                xs: 'none',
+                sm: 'none',
+                md: 'block',
+                lg: 'block',
+                xl: 'block'
+              }
+            }}>
             {navItems.map(({ path, label }) => (
               <NavbarLink path={path} label={label} />
             ))}
@@ -83,7 +94,14 @@ const Navbar: FC = () => {
           variant="temporary"
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
-          sx={{ display: { xs: 'block', sm: 'block', md: 'none' }, '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth } }}
+          sx={{
+            display: {
+              xs: 'block',
+              sm: 'block',
+              md: 'none'
+            },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
+          }}
         >
           <MyDrawer onClose={handleDrawerToggle} navItems={navItems} />
         </Drawer>

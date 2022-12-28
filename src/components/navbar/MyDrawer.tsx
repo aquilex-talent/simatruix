@@ -1,5 +1,7 @@
-import { Box, List, ListItem, ListItemButton, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+
+import { Box, List, ListItem, ListItemButton, Typography } from "@mui/material";
+
 import { NavItem } from "./Navbar";
 
 interface MyDrawerProps {
@@ -12,9 +14,16 @@ const MyDrawer = ({ onClose, navItems }: MyDrawerProps) => (
     <List>
       {navItems.map(({ path, label }) => (
         <ListItem key={path} >
-          <Link to={path} onClick={onClose} style={{ textDecoration: 'none', width: '100%' }}>
+          <Link
+            to={path}
+            onClick={onClose}
+            style={{ textDecoration: 'none', width: '100%' }}
+          >
             <ListItemButton sx={{ width: '100%' }}>
-              <Typography variant="largeSemibold" sx={{ color: 'black' }}>
+              <Typography
+                variant="largeSemibold"
+                sx={{ color: 'black' }}
+              >
                 {label}
               </Typography>
             </ListItemButton>
