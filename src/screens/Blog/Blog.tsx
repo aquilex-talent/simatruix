@@ -1,6 +1,6 @@
 import { useEffect, FC, useState } from "react";
 
-import { Article } from "components/article-card/ArticleCard";
+import { Article } from "components";
 
 import BlogList from "./BlogList";
 

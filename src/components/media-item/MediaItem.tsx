@@ -4,7 +4,7 @@ import { SxProps, Theme } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import FilterNoneIcon from '@mui/icons-material/FilterNone';
 
-import { InstaItem } from '../../components';
+import { InstaItem } from 'components';
 
 interface MediaItemProps {
   item: InstaItem

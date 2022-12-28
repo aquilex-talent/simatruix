@@ -12,7 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 
-import { RedButton } from "../../components";
+import { RedButton } from "components";
 import newsletterimg from "../../static/images/newsletter.png";
 
 const NewsletterBox = styled(Box)<BoxProps>(({ theme }) => ({

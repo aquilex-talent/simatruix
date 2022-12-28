@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { InstaGrid } from '../../components';
+import { InstaGrid } from 'components';
 
 export type MediaType = "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
 
@@ -46,7 +46,7 @@ const InstaFeed = () => {
     }
 
     doFetch();
-  }, []);
+  }, [instaUrl]);
 
   return (
     <InstaGrid items={instaItems} />

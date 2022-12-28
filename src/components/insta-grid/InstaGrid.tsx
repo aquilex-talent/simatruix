@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Skeleton from "@mui/material/Skeleton";
 
-import { InstaItem, MediaItem } from '../../components';
+import { InstaItem, MediaItem } from 'components';
 
 interface InstaGridProps {
   items: InstaItem[];
