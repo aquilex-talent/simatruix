@@ -13,9 +13,9 @@ import {
   OnlineCoaching,
   AppMembership,
   Sessions,
-  StrengthCamp
+  StrengthCamp,
+  Home
 } from "screens";
-
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path='/shop' element={<Shop />} />

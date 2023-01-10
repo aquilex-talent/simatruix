@@ -32,6 +32,10 @@ export interface NavItem {
 const drawerWidth = 240;
 const navItems: NavItem[] = [
   {
+    path: "/home",
+    label: "Home"
+  },
+  {
     path: "/about",
     label: "About"
   },
