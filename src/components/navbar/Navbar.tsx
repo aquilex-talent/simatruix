@@ -83,7 +83,7 @@ const Navbar: FC = () => {
               }
             }}>
             {navItems.map(({ path, label }) => (
-              <NavbarLink path={path} label={label} />
+              <NavbarLink key={path} path={path} label={label} />
             ))}
           </Box>
         </Toolbar>
