@@ -11,6 +11,7 @@ interface InstaGridProps {
 
 const StyledGrid = styled.div`
   width: 100%;
+  aspect-ratio: 1 /1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);

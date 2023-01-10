@@ -22,16 +22,16 @@ const iconStyle: SxProps<Theme> = {
 const MediaItem = ({ item }: MediaItemProps) => {
   const imageUrl = !!item.thumbnailUrl ? item.thumbnailUrl : item.mediaUrl;
   return (
-    <a
-      href={item.permalink}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <div
-        style={{
-          display: "inline-block",
-          position: "relative"
-        }}>
+    <div
+      style={{
+        display: "inline-block",
+        position: "relative"
+      }}>
+      <a
+        href={item.permalink}
+        target="_blank"
+        rel="noreferrer"
+      >
         <img
           src={imageUrl}
           alt="insta-item"
@@ -49,8 +49,8 @@ const MediaItem = ({ item }: MediaItemProps) => {
         {item.mediaType === "CAROUSEL_ALBUM" &&
           <FilterNoneIcon sx={iconStyle} />
         }
-      </div>
-    </a>
+      </a>
+    </div>
   );
 }
 
