@@ -1,11 +1,10 @@
 import React from 'react';
 
-import Card from "@mui/material/Card";
-import { styled } from "@mui/material/styles";
 import { CardActionArea } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
+import { ResponsiveCard } from './ResponsiveCard';
 
 export type Article = {
   imgUrl?: string;
@@ -16,18 +15,6 @@ export type Article = {
 export interface ArticleCardProps {
   article: Article;
 }
-
-const ResponsiveCard = styled(Card)(({ theme }) => ({
-  background: "red",
-  [theme.breakpoints.up("sm")]: {
-    width: 600,
-  },
-  [theme.breakpoints.down("sm")]: {
-    width: "100%",
-    minWidth: 300,
-    borderRadius: 0,
-  },
-}));
 
 const ArticleCard = ({ article }: ArticleCardProps) => (
   <ResponsiveCard>

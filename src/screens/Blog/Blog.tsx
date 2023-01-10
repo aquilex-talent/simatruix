@@ -6,6 +6,7 @@ import BlogList from "./BlogList";
 
 const Blog: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
+  const [loaded, setLoaded] = useState<boolean>(false);
 
   const mediumUrl = process.env.REACT_APP_MEDIUM_PATH;
 
@@ -25,6 +26,11 @@ const Blog: FC = () => {
         const articles = node.querySelectorAll("item");
 
         const loadedArticles: Article[] = [];
+
+        if (!articles.length) {
+          setLoaded(true);
+          return;
+        }
 
         for (let i = 0; i < articles.length; i++) {
           const titleElement = articles[i].querySelector("title");
@@ -84,13 +90,14 @@ const Blog: FC = () => {
         }
 
         setArticles(loadedArticles);
+        setLoaded(true);
       } catch (error) { }
     };
 
     doFetch();
   }, [mediumUrl]);
 
-  return <BlogList articles={articles} />;
+  return <BlogList loaded={loaded} articles={articles} />;
 };
 
 export default Blog;
