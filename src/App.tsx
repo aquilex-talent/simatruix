@@ -32,7 +32,7 @@ function App() {
           <Route path="/shop/app_membership" element={<AppMembership />} />
           <Route path="/shop/sessions" element={<Sessions />} />
           <Route path="/shop/strength_camp" element={<StrengthCamp />} />
-          <Route path="/" element={<Navigate to="/about" replace />} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
         </Routes>
       </Router>
     </ThemeProvider>
