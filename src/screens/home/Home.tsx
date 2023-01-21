@@ -19,7 +19,7 @@ const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
 const Container = styled(Box)<BoxProps>(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+  alignItems: 'start',
   marginTop: 60,
   [theme.breakpoints.up('xs')]: {
     width: '100%',
@@ -49,15 +49,27 @@ const Section = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
+const benefits = [
+  "PRICE ON ENQUIRY",
+  "SUPPORT VIA WhatsApp",
+  "CHECK-INS WEEKLY IN OFFSEASON AND AS OFTEN AS NEEDED IN PREP",
+  "FULL TRAINING & NUTRITION PROGRAM",
+  "PLAN ALTERATIONS AS NEEDED",
+  "FULL SUPPORT THROUGHOUT YOUR PREP AND OFFSEASON",
+  "PHONE CALLS/SKYPE CALLS IF NEEDED",
+  "ANALYSING YOUR TRAINING VIDEOS",
+  "AND MUCH MORE!!",
+]
+
 const Home = () => {
   const postUrl = process.env.REACT_APP_MAILCHIMP_URL;
 
   return (
     <Container>
-      <WhiteText variant="h1" sx={{ marginTop: 2 }} >
+      <WhiteText variant="h1" sx={{ marginTop: 2, alignSelf: 'center' }} >
         Revolutionise.
       </WhiteText>
-      <WhiteText variant="h1" gutterBottom>
+      <WhiteText variant="h1" sx={{ alignSelf: 'center' }} gutterBottom>
         Permanentely.
       </WhiteText>
       <WhiteText variant="body1" gutterBottom>
@@ -75,6 +87,15 @@ const Home = () => {
       <div style={{ marginTop: 28 }}>
         <InstaFeed />
       </div>
+      {/* <ul>
+        {benefits.map(benefit => (
+          <li style={{ }}>
+            <WhiteText variant="body1">
+              {benefit}
+            </WhiteText>
+          </li>
+        ))}
+      </ul> */}
       {postUrl &&
         <Section marginBottom="40px">
           <MailchimpFormContainer postUrl={postUrl} />
