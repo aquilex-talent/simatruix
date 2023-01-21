@@ -1,17 +1,23 @@
 import React from 'react';
-
 import 'main.css';
 
 import {
   styled,
   Box,
   BoxProps,
+  Typography,
+  TypographyProps,
+  Theme,
+  useTheme
 } from "@mui/material";
 
 import about1 from "static/images/about_1.png";
-import about2 from "static/images/about_2.png";
 
-import { AboutCard } from 'components';
+import { InstaFeed } from 'components';
+
+const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
+  color: "#FFFFFF",
+}));
 
 const Container = styled(Box)<BoxProps>(({ theme }) => ({
   display: 'flex',
@@ -21,35 +27,39 @@ const Container = styled(Box)<BoxProps>(({ theme }) => ({
   [theme.breakpoints.up('xs')]: {
     width: '100%',
   },
-  [theme.breakpoints.up('md')]: {
-    width: '80%',
+  [theme.breakpoints.up('sm')]: {
+    width: '70%',
     marginLeft: 'auto',
     marginRight: 'auto',
   },
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.up('md')]: {
     width: '60%',
   },
 }));
 
-const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
 const About = () => {
+  const theme = useTheme();
+
   return (
     <Container>
-      <AboutCard
-        imageUrl={about1}
-        title="Who am I?"
-        subtitle="Subtitle"
-        body={loremIpsum}
-        sx={{ mt: 2 }}
-      />
-      <AboutCard
-        imageUrl={about2}
-        title="What can I do for you?"
-        subtitle="Subtitle"
-        body={loremIpsum}
-        sx={{ mt: 4, mb: 2 }}
-      />
+      <Box className='about-page-info-container' sx={{ marginBottom: 4 }}>
+        <img src={about1} alt="Adam" className='about-page-img1' />
+        <div>
+          <WhiteText variant="body1" sx={{ marginBottom: 2 }}>
+            I am an Professional bodybuilder with 5 years of coaching and competitive experience.
+            I have dozens of success stories which you can see throughout this website and via my social media platforms Instagram (@SematriuxFitness)
+          </WhiteText>
+          <WhiteText variant="body1" sx={{ marginBottom: 2 }}>
+            I offer professional coaching services to athletes (competitive and non-competitive) to improve and change their lives.
+            I work with regular gym-goers to professional level athletes who display the highest level of commitment and a phenomenal work ethic
+          </WhiteText>
+          <WhiteText variant="body1" sx={{ marginBottom: 2 }}>
+            Payment will be made per month via GoCardless. No extra charges throughout.
+            I can justify my prices as you are not just a number on my books you are a part of my team and we will work closely and personally together on your journey.
+          </WhiteText>
+        </div>
+      </Box>
+      <InstaFeed />
     </Container>
   )
 }
