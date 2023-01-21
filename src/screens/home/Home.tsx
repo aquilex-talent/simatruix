@@ -10,7 +10,7 @@ import {
   BoxProps,
 } from "@mui/material";
 
-import { InstaFeed, MailchimpFormContainer } from 'components';
+import { InstaFeed, MailchimpFormContainer, RedButton, RedBuyButton } from 'components';
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -84,18 +84,12 @@ const Home = () => {
       <WhiteText variant="body1" sx={{ marginBottom: 2 }}>
         As a member of my team you will have access to exclusive team content on this site including educational videos, a workout library and tutorials.
       </WhiteText>
-      <div style={{ marginTop: 28 }}>
-        <InstaFeed />
-      </div>
-      {/* <ul>
-        {benefits.map(benefit => (
-          <li style={{ }}>
-            <WhiteText variant="body1">
-              {benefit}
-            </WhiteText>
-          </li>
-        ))}
-      </ul> */}
+      <WhiteText variant="body1" sx={{ marginBottom: 2 }}>
+        Are you ready?
+      </WhiteText>
+      <RedButton sx={{ marginX: 'auto', borderRadius: 0 }} href="/shop">
+        <Typography variant="largeSemibold" sx={{ marginX: 2 }}>Start Now</Typography>
+      </RedButton>
       {postUrl &&
         <Section marginBottom="40px">
           <MailchimpFormContainer postUrl={postUrl} />
