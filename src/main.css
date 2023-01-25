@@ -6,6 +6,18 @@
   outline: none;
 }
 
+@media screen and (min-width: 0px) and (max-width: 1199px) {
+  .about-page-info-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-page-img1 {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+}
+
 @media screen and (min-width: 0px) and (max-width: 899px) {
   .NewsletterSignUp-image {
     display: none
@@ -31,6 +43,7 @@
   #about-img1 {
     max-width: 600px;
   }
+
 }
 
 @media screen and (max-width: 1200px) {
@@ -43,5 +56,16 @@
   .ShopSection-image {
     display: block;
     height: 100%;
+  }
+
+  .about-page-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .about-page-img1 {
+    width: 60%;
+    margin-right: 2%;
   }
 }
