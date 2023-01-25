@@ -9,14 +9,16 @@ const Carousel = ({ children }: CarouselProps) => {
   const { scrollRef, pages, activePageIndex, next, goTo } = useSnapCarousel();
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       if (activePageIndex === pages.length - 1) {
         goTo(0);
         return;
       }
 
       next();
-    }, 3000);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, [activePageIndex, pages, goTo, next]);
 
   return (
