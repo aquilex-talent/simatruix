@@ -32,12 +32,12 @@ const Carousel = () => {
           scrollSnapType: 'x mandatory'
         }}
       >
-        {Array.from({ length: 100 }).map((_, i) => (
+        {Array.from({ length: 5 }).map((_, i) => (
           <li
             style={{
               backgroundColor: 'aqua',
               fontSize: '50px',
-              width: '250px',
+              width: '100%',
               height: '250px',
               flexShrink: 0,
               color: '#fff',
