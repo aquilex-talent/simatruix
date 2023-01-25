@@ -64,7 +64,7 @@ export const theme = createTheme({
   typography: {
     fontFamily: "Open Sans",
     h1: {
-      fontFamily: "Open Sans",
+      fontFamily: "Georgia",
       '@media (min-width:0px)': {
         fontSize: '2rem',
       },
@@ -80,7 +80,7 @@ export const theme = createTheme({
       fontWeight: "bold",
     },
     h2: {
-      fontFamily: "Open Sans",
+      fontFamily: "Georgia",
       '@media (min-width:0px)': {
         fontSize: '1.5rem',
       },
@@ -96,7 +96,7 @@ export const theme = createTheme({
       fontWeight: "bold",
     },
     h3: {
-      fontFamily: "Open Sans",
+      fontFamily: "Georgia",
       '@media (min-width:0px)': {
         fontSize: '1rem',
       },
@@ -112,7 +112,6 @@ export const theme = createTheme({
       fontWeight: "bold",
     },
     h4: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.8rem',
       },
@@ -128,7 +127,6 @@ export const theme = createTheme({
       fontWeight: "bold",
     },
     large: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.8rem',
       },
@@ -143,7 +141,6 @@ export const theme = createTheme({
       },
     },
     medeium: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.5rem',
       },
@@ -158,7 +155,6 @@ export const theme = createTheme({
       },
     },
     caption: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.4rem',
       },
@@ -174,7 +170,6 @@ export const theme = createTheme({
       textTransform: "uppercase",
     },
     normal: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.4rem',
       },
@@ -189,7 +184,6 @@ export const theme = createTheme({
       },
     },
     small: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.3rem',
       },
@@ -204,7 +198,6 @@ export const theme = createTheme({
       },
     },
     largeSemibold: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.8rem',
       },
@@ -220,7 +213,6 @@ export const theme = createTheme({
       fontWeight: "medium",
     },
     medeiumSemibold: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.5rem',
       },
@@ -236,7 +228,6 @@ export const theme = createTheme({
       fontWeight: "medium",
     },
     captionSemibold: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.4rem',
       },
@@ -253,7 +244,6 @@ export const theme = createTheme({
       textTransform: "uppercase",
     },
     normalSemibold: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.4rem',
       },
@@ -269,7 +259,6 @@ export const theme = createTheme({
       fontWeight: "medium",
     },
     smallSemibold: {
-      fontFamily: "Open Sans",
       '@media (min-width:0px)': {
         fontSize: '0.3rem',
       },
