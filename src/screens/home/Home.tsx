@@ -10,7 +10,11 @@ import {
   BoxProps,
 } from "@mui/material";
 
-import { InstaFeed, MailchimpFormContainer, RedButton, RedBuyButton } from 'components';
+import {
+  MailchimpFormContainer,
+  RedButton,
+  Carousel
+} from 'components';
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -49,18 +53,6 @@ const Section = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
-const benefits = [
-  "PRICE ON ENQUIRY",
-  "SUPPORT VIA WhatsApp",
-  "CHECK-INS WEEKLY IN OFFSEASON AND AS OFTEN AS NEEDED IN PREP",
-  "FULL TRAINING & NUTRITION PROGRAM",
-  "PLAN ALTERATIONS AS NEEDED",
-  "FULL SUPPORT THROUGHOUT YOUR PREP AND OFFSEASON",
-  "PHONE CALLS/SKYPE CALLS IF NEEDED",
-  "ANALYSING YOUR TRAINING VIDEOS",
-  "AND MUCH MORE!!",
-]
-
 const Home = () => {
   const postUrl = process.env.REACT_APP_MAILCHIMP_URL;
 
@@ -87,9 +79,28 @@ const Home = () => {
       <WhiteText variant="body1" sx={{ marginBottom: 2 }}>
         Are you ready?
       </WhiteText>
-      <RedButton sx={{ marginX: 'auto', borderRadius: 0 }} href="/shop">
+      <RedButton sx={{ marginX: 'auto', borderRadius: 0, marginY: 2 }} href="/shop">
         <Typography variant="largeSemibold" sx={{ marginX: 2 }}>Start Now</Typography>
       </RedButton>
+      <Carousel>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <li
+            style={{
+              backgroundColor: 'aqua',
+              fontSize: '50px',
+              width: '100%',
+              height: '250px',
+              flexShrink: 0,
+              color: '#fff',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            Item {i}
+          </li>
+        ))}
+      </Carousel>
       {postUrl &&
         <Section marginBottom="40px">
           <MailchimpFormContainer postUrl={postUrl} />

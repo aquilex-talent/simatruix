@@ -9,3 +9,4 @@ export * from "./about-card";
 export * from "./insta-feed";
 export * from "./insta-grid";
 export * from "./media-item";
+export * from "./carousel";
