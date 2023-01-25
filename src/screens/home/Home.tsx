@@ -10,7 +10,11 @@ import {
   BoxProps,
 } from "@mui/material";
 
-import { InstaFeed, MailchimpFormContainer, RedButton, Carousel } from 'components';
+import {
+  MailchimpFormContainer,
+  RedButton,
+  Carousel
+} from 'components';
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -87,7 +91,7 @@ const Home = () => {
       <WhiteText variant="body1" sx={{ marginBottom: 2 }}>
         Are you ready?
       </WhiteText>
-      <RedButton sx={{ marginX: 'auto', borderRadius: 0 }} href="/shop">
+      <RedButton sx={{ marginX: 'auto', borderRadius: 0, marginY: 2 }} href="/shop">
         <Typography variant="largeSemibold" sx={{ marginX: 2 }}>Start Now</Typography>
       </RedButton>
       <Carousel>
