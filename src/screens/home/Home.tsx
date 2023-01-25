@@ -53,18 +53,6 @@ const Section = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
-const benefits = [
-  "PRICE ON ENQUIRY",
-  "SUPPORT VIA WhatsApp",
-  "CHECK-INS WEEKLY IN OFFSEASON AND AS OFTEN AS NEEDED IN PREP",
-  "FULL TRAINING & NUTRITION PROGRAM",
-  "PLAN ALTERATIONS AS NEEDED",
-  "FULL SUPPORT THROUGHOUT YOUR PREP AND OFFSEASON",
-  "PHONE CALLS/SKYPE CALLS IF NEEDED",
-  "ANALYSING YOUR TRAINING VIDEOS",
-  "AND MUCH MORE!!",
-]
-
 const Home = () => {
   const postUrl = process.env.REACT_APP_MAILCHIMP_URL;
 
