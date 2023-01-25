@@ -90,7 +90,25 @@ const Home = () => {
       <RedButton sx={{ marginX: 'auto', borderRadius: 0 }} href="/shop">
         <Typography variant="largeSemibold" sx={{ marginX: 2 }}>Start Now</Typography>
       </RedButton>
-      <Carousel />
+      <Carousel>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <li
+            style={{
+              backgroundColor: 'aqua',
+              fontSize: '50px',
+              width: '100%',
+              height: '250px',
+              flexShrink: 0,
+              color: '#fff',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            Item {i}
+          </li>
+        ))}
+      </Carousel>
       {postUrl &&
         <Section marginBottom="40px">
           <MailchimpFormContainer postUrl={postUrl} />
