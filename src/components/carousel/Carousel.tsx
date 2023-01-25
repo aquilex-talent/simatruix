@@ -2,10 +2,28 @@ import React from 'react';
 import { useSnapCarousel } from 'react-snap-carousel';
 
 const Carousel = () => {
-  const { scrollRef, pages, activePageIndex, next, prev } = useSnapCarousel();
+  const { scrollRef, pages, activePageIndex, next, prev, goTo } = useSnapCarousel();
+
+  const handleNext = () => {
+    if (activePageIndex === pages.length - 1) {
+      goTo(0);
+      return;
+    }
+
+    next();
+  }
+
+  const handlePrev = () => {
+    if (activePageIndex === 0) {
+      goTo(pages.length - 1);
+      return;
+    }
+
+    prev();
+  }
 
   return (
-    <div style={{ width: '100%'}}>
+    <div style={{ width: '100%' }}>
       <ul
         ref={scrollRef}
         style={{
@@ -32,11 +50,8 @@ const Carousel = () => {
           </li>
         ))}
       </ul>
-      <div>
-        {activePageIndex + 1} / {pages.length}
-      </div>
-      <button onClick={() => prev()}>Prev</button>
-      <button onClick={() => next()}>Next</button>
+      <button onClick={handlePrev}>Prev</button>
+      <button onClick={handleNext}>Next</button>
     </div>
   );
 };
