@@ -10,7 +10,7 @@ import {
   BoxProps,
 } from "@mui/material";
 
-import { InstaFeed, MailchimpFormContainer, RedButton, RedBuyButton } from 'components';
+import { InstaFeed, MailchimpFormContainer, RedButton, Carousel } from 'components';
 
 const WhiteText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: "#FFFFFF",
@@ -90,6 +90,7 @@ const Home = () => {
       <RedButton sx={{ marginX: 'auto', borderRadius: 0 }} href="/shop">
         <Typography variant="largeSemibold" sx={{ marginX: 2 }}>Start Now</Typography>
       </RedButton>
+      <Carousel />
       {postUrl &&
         <Section marginBottom="40px">
           <MailchimpFormContainer postUrl={postUrl} />
