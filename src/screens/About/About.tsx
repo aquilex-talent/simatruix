@@ -37,7 +37,10 @@ const Container = styled(Box)<BoxProps>(({ theme }) => ({
 
 const About = () => (
   <Container>
-    <Box className='about-page-info-container' sx={{ marginBottom: 4 }}>
+    <WhiteText variant="h1" sx={{ marginTop: 2, alignSelf: 'center' }} >
+      About Me
+    </WhiteText>
+    <Box className='about-page-info-container' sx={{ marginY: 4 }}>
       <img src={about1} alt="Adam" className='about-page-img1' />
       <div>
         <WhiteText variant="body1" sx={{ marginBottom: 2 }}>
