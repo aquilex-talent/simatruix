@@ -1,26 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSnapCarousel } from 'react-snap-carousel';
 
 const Carousel = () => {
   const { scrollRef, pages, activePageIndex, next, prev, goTo } = useSnapCarousel();
 
-  const handleNext = () => {
-    if (activePageIndex === pages.length - 1) {
-      goTo(0);
-      return;
-    }
+  useEffect(() => {
+    console.log('useEffect');
+    setTimeout(() => {
+      console.log('inside setTimeout');
+      if(activePageIndex === pages.length - 1) {
+        goTo(0);
+        return;
+      }
 
-    next();
-  }
-
-  const handlePrev = () => {
-    if (activePageIndex === 0) {
-      goTo(pages.length - 1);
-      return;
-    }
-
-    prev();
-  }
+      next();
+    }, 3000);
+  }, [activePageIndex, pages, goTo, next]);
 
   return (
     <div style={{ width: '100%' }}>
@@ -28,7 +23,7 @@ const Carousel = () => {
         ref={scrollRef}
         style={{
           display: 'flex',
-          overflow: 'auto',
+          overflow: 'hidden',
           scrollSnapType: 'x mandatory'
         }}
       >
@@ -50,8 +45,6 @@ const Carousel = () => {
           </li>
         ))}
       </ul>
-      <button onClick={handlePrev}>Prev</button>
-      <button onClick={handleNext}>Next</button>
     </div>
   );
 };
