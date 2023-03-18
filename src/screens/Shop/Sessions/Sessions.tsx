@@ -40,6 +40,19 @@ const sessions: { [id: number]: SessionInfo } = {
   },
 }
 
+const bodyContent = `I am committed to providing you with a customized fitness 
+experience that is tailored to your unique needs and goals. With my undivided 
+attention and expertise, we will work together to create a personalized 
+workout plan that is both challenging and enjoyable. Through our 1-on-1 sessions, 
+I will be able to identify your strengths and weaknesses, and provide you with 
+the feedback and guidance you need to maximize your potential. Whether you're 
+looking to lose weight, gain muscle, or improve your overall fitness level, our 
+sessions will help you reach your goals faster and with greater efficiency. So, 
+are you ready to invest in yourself and take your fitness to the next level? 
+Let's start working together and achieve amazing results that you never thought 
+were possible. Remember, your dedication and hard work will pay off, and I'll 
+be here to celebrate every milestone with you!`;
+
 const Sessions = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -64,7 +77,7 @@ const Sessions = () => {
       img={img}
       title="PT Sessions"
       subtitle="Abs are made in the kitchen"
-      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+      body={bodyContent}
     >
       <Box
         display="flex"
