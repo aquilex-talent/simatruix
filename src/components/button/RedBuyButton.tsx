@@ -16,7 +16,7 @@ const RedBuyButton = ({ link, sx }: RedBuyButtonProps) => (
       href={link}
       target="_blank"
       rel="noreferrer"
-      style={{ color: "black", textDecoration: "none" }}
+      style={{ color: "white", textDecoration: "none" }}
     >
       Buy Now
     </a>
